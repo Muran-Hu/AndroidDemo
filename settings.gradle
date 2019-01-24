@@ -1,0 +1,1 @@
+include ':App', ':UI', ':Glide', ':ButterKnife', ':Java', ':Layout', ':Touch', ':BaseLibrary', ':AndroidBaseKnowledge', ':Dagger2'
