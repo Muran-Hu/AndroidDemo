@@ -20,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
       @Override
       public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
         emitter.onNext(1);
+        emitter.onNext(2);
+        emitter.onComplete();
+        emitter.onNext(3);
       }
     });
 

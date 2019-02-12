@@ -7,15 +7,18 @@ package com.droid.java;
  */
 public class Main {
   public static void main(String args[]) {
-    Runnable runnable = () -> System.out.println("1111111111");
+    Coder coder = new Coder("mr.simple");
+    Coder coder1 = new Coder("coder-1");
+    Coder coder2 = new Coder("coder-2");
+    Coder coder3 = new Coder("coder-3");
 
-    Thread thread = new Thread(runnable) {
-      @Override
-      public void run() {
-        super.run(); // 只有调用 super.run() 方法，传进来 runnable 中的 run 方法才会执行
-        System.out.println("2222222222");
-      }
-    };
-    thread.start();
+    DevTechFrontier devTechFrontier = new DevTechFrontier();
+
+    devTechFrontier.addObserver(coder);
+    devTechFrontier.addObserver(coder1);
+    devTechFrontier.addObserver(coder2);
+    devTechFrontier.addObserver(coder3);
+
+    devTechFrontier.postNewPublication("Hello");
   }
 }
