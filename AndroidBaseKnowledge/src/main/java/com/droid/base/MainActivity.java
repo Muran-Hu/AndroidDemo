@@ -1,12 +1,18 @@
 package com.droid.base;
 
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.res.Configuration;
 import android.net.Uri;
+import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import com.droid.base.service.MyService;
 
 import java.net.URI;
 
@@ -15,6 +21,15 @@ public class MainActivity extends AppCompatActivity {
   private static final String TAG = "MainActivity => ";
 
   Button mBtn;
+  Button startService;
+  Button stopService;
+
+  Button bindService;
+  Button play;
+
+  Intent serviceIntent;
+  MyServiceConnection conn = new MyServiceConnection();
+  MyService.MyServiceProxy proxy;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +49,55 @@ public class MainActivity extends AppCompatActivity {
       }
     });
 
+    serviceIntent = new Intent(this, MyService.class);
+
+    startService = findViewById(R.id.startService);
+    startService.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        startService(serviceIntent);
+      }
+    });
+
+    stopService = findViewById(R.id.stopService);
+    stopService.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        stopService(serviceIntent);
+      }
+    });
+
+    bindService = findViewById(R.id.bindService);
+    bindService.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        bindService(serviceIntent, conn, BIND_AUTO_CREATE);
+      }
+    });
+
+    play = findViewById(R.id.play);
+    play.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        proxy.mp3Play("相信自己");
+      }
+    });
+
     System.out.println(TAG + "onCreate");
+  }
+
+  class MyServiceConnection implements ServiceConnection {
+    @Override
+    public void onServiceConnected(ComponentName name, IBinder service) {
+      Log.e(TAG, "onServiceConnected: " + service);
+
+      proxy = (MyService.MyServiceProxy)service;
+    }
+
+    @Override
+    public void onServiceDisconnected(ComponentName name) {
+      Log.e(TAG, "onServiceDisconnected");
+    }
   }
 
   @Override
@@ -110,6 +173,11 @@ public class MainActivity extends AppCompatActivity {
   @Override
   protected void onDestroy() {
     super.onDestroy();
+
+    if (null != conn) {
+      unbindService(conn);
+      conn = null;
+    }
 
     System.out.println(TAG + "onDestroy");
   }

@@ -44,6 +44,7 @@
                     android:mimeType="text/plain"/>
             </intent-filter>
         </activity>
+        <service android:name=".service.MyService"/>
     </application>
 
 </manifest>
