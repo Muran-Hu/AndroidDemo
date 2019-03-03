@@ -1,12 +1,11 @@
 package com.droid.demo;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
   Button startBtn;
   Button stopBtn;
@@ -22,18 +21,8 @@ public class MainActivity extends AppCompatActivity {
     final Intent intent = new Intent();
     intent.setAction("com.droid.demo.MY_SERVICE");
 
-    startBtn.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        startService(intent);
-      }
-    });
+    startBtn.setOnClickListener(v -> startService(intent));
 
-    stopBtn.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        stopService(intent);
-      }
-    });
+    stopBtn.setOnClickListener(v -> stopService(intent));
   }
 }
