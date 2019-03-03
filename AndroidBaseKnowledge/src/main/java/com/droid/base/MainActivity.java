@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.res.Configuration;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +20,21 @@ import java.net.URI;
 public class MainActivity extends AppCompatActivity {
 
   private static final String TAG = "MainActivity => ";
+
+  static class MyAsyncTask extends AsyncTask {
+
+    public MyAsyncTask() {}
+
+    @Override
+    protected Object doInBackground(Object[] objects) {
+      return null;
+    }
+
+    @Override
+    protected void onPostExecute(Object o) {
+      super.onPostExecute(o);
+    }
+  }
 
   Button mBtn;
   Button startService;
@@ -35,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+
+    MyAsyncTask myAsyncTask = new MyAsyncTask();
+    myAsyncTask.execute();
 
     mBtn = findViewById(R.id.mBtn);
     mBtn.setOnClickListener(new View.OnClickListener() {
