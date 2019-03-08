@@ -1,4 +1,4 @@
-package com.droid.java;
+package com.droid.java.countdownlatch;
 
 import java.util.concurrent.CountDownLatch;
 

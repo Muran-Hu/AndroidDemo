@@ -5,27 +5,37 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
-    <include
+    <com.droid.ui.MyView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/title_bar"/>
+        android:layout_height="match_parent"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Hello World!"/>
+    <!--<com.droid.ui.MyImageView-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:scaleType="centerCrop"-->
+        <!--android:src="@drawable/ic_launcher_background"/>-->
 
-    <Button
-        android:id="@+id/more_btn"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="More"/>
+    <!--<include-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--layout="@layout/title_bar"/>-->
 
-    <ViewStub
-        android:id="@+id/view_stub"
-        android:layout="@layout/extra_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:text="Hello World!"/>-->
+
+    <!--<Button-->
+        <!--android:id="@+id/more_btn"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="More"/>-->
+
+    <!--<ViewStub-->
+        <!--android:id="@+id/view_stub"-->
+        <!--android:layout="@layout/extra_layout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"/>-->
 
 </LinearLayout>

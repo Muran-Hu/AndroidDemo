@@ -1,8 +1,7 @@
-package com.droid.java;
+package com.droid.java.countdownlatch;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
 
 /**
  * Created by Muran Hu on 2019-03-03.

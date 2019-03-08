@@ -6,33 +6,9 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/mBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Jump"/>
-
-    <Button
         android:id="@+id/startService"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Start Service"/>
-
-    <Button
-        android:id="@+id/stopService"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Stop Service"/>
-
-    <Button
-        android:id="@+id/bindService"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bind Service"/>
-
-    <Button
-        android:id="@+id/play"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Play"/>
 
 </LinearLayout>

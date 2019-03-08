@@ -18,33 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ActivityB"
-            android:taskAffinity="com.droid.base.task1"
-            android:launchMode="singleTask">
-        </activity>
-        <activity
-            android:name=".ActivityC"
-            android:launchMode="singleTask">
-        </activity>
-        <activity
-            android:name=".ActivityD"
-            android:launchMode="singleTask">
-        </activity>
-        <activity
-            android:name=".ActivityE"
-            android:launchMode="singleTask">
-            <intent-filter>
-                <action android:name="ANDROID_CUSTOM_ACTION_OPEN"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data
-                    android:scheme="mhu"
-                    android:host="www.mhu.com"
-                    android:port="80"
-                    android:mimeType="text/plain"/>
-            </intent-filter>
-        </activity>
-        <service android:name=".service.MyService"/>
+        <service android:name="com.droid.base.service.MyIntentService"/>
     </application>
 
 </manifest>

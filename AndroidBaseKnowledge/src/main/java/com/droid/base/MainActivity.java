@@ -1,120 +1,41 @@
 package com.droid.base;
 
-import android.content.ComponentName;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.content.res.Configuration;
-import android.net.Uri;
-import android.os.AsyncTask;
-import android.os.IBinder;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.droid.base.service.MyService;
+import com.droid.base.service.MyIntentService;
 
 public class MainActivity extends AppCompatActivity {
 
   private static final String TAG = "MainActivity => ";
 
-  static class MyAsyncTask extends AsyncTask {
-
-    public MyAsyncTask() {}
-
-    @Override
-    protected Object doInBackground(Object[] objects) {
-      return null;
-    }
-
-    @Override
-    protected void onPostExecute(Object o) {
-      super.onPostExecute(o);
-    }
-  }
-
-  Button mBtn;
   Button startService;
-  Button stopService;
-
-  Button bindService;
-  Button play;
 
   Intent serviceIntent;
-  MyServiceConnection conn = new MyServiceConnection();
-  MyService.MyServiceProxy proxy;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    MyAsyncTask myAsyncTask = new MyAsyncTask();
-    myAsyncTask.execute();
-
-    mBtn = findViewById(R.id.mBtn);
-    mBtn.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        Intent intent = new Intent();
-
-//        intent.setAction("android.intent.action.VIEW");
-        intent.setAction("ANDROID_CUSTOM_ACTION_OPEN");
-        intent.setDataAndType(Uri.parse("mhu://www.mhu.com:80"), "text/plain");
-        startActivity(intent);
-      }
-    });
-
-    serviceIntent = new Intent(this, MyService.class);
+    serviceIntent = new Intent(this, MyIntentService.class);
 
     startService = findViewById(R.id.startService);
     startService.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
+        System.out.println("onClick");
         startService(serviceIntent);
       }
     });
 
-    stopService = findViewById(R.id.stopService);
-    stopService.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        stopService(serviceIntent);
-      }
-    });
 
-    bindService = findViewById(R.id.bindService);
-    bindService.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        bindService(serviceIntent, conn, BIND_AUTO_CREATE);
-      }
-    });
-
-    play = findViewById(R.id.play);
-    play.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        proxy.mp3Play("相信自己");
-      }
-    });
 
     System.out.println(TAG + "onCreate");
-  }
-
-  class MyServiceConnection implements ServiceConnection {
-    @Override
-    public void onServiceConnected(ComponentName name, IBinder service) {
-      Log.e(TAG, "onServiceConnected: " + service);
-
-      proxy = (MyService.MyServiceProxy)service;
-    }
-
-    @Override
-    public void onServiceDisconnected(ComponentName name) {
-      Log.e(TAG, "onServiceDisconnected");
-    }
   }
 
   @Override
@@ -190,11 +111,6 @@ public class MainActivity extends AppCompatActivity {
   @Override
   protected void onDestroy() {
     super.onDestroy();
-
-    if (null != conn) {
-      unbindService(conn);
-      conn = null;
-    }
 
     System.out.println(TAG + "onDestroy");
   }

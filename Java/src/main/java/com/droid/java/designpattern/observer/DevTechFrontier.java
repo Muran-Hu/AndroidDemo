@@ -1,4 +1,4 @@
-package com.droid.java;
+package com.droid.java.designpattern.observer;
 
 import java.util.Observable;
 

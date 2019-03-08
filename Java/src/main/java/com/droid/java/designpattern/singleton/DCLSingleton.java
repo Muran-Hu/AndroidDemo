@@ -1,4 +1,4 @@
-package com.droid.java;
+package com.droid.java.designpattern.singleton;
 
 /**
  * Created by Muran Hu on 2019-02-12.

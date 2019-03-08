@@ -1,5 +1,8 @@
 package com.droid.java;
 
+import com.droid.java.designpattern.observer.Coder;
+import com.droid.java.designpattern.observer.DevTechFrontier;
+
 /**
  * Created by Muran Hu on 2018-12-24.
  * Email: muranhu@gmail.com
