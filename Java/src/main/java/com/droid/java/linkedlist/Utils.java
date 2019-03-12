@@ -1,5 +1,7 @@
 package com.droid.java.linkedlist;
 
+import com.sun.org.apache.xpath.internal.axes.PredicatedNodeTest;
+
 import sun.nio.cs.ext.EUC_JP_LINUX;
 
 /**
@@ -135,62 +137,8 @@ public class Utils {
     return null;
   }
 
-  public static Node reverse(Node list) {
-    Node head = null;
-    Node previous = null;
-    Node currentNode = list;
-
-    while(currentNode != null) {
-      Node next = currentNode.next;
-      if (next == null) {
-        head = currentNode;
-      }
-
-      currentNode.next = previous;
-      previous = currentNode;
-      currentNode = next;
-    }
-
-    return head;
-  }
-
-  public static Node reverse1(Node list) {
-    Node headNode = null;
-    Node preNode = null;
-    Node currentNode = list;
-
-    while (currentNode != null) {
-      Node next = currentNode.next;
-      if (next == null) {
-        headNode = currentNode;
-      }
-
-      currentNode.next = preNode;
-      preNode = currentNode;
-      currentNode = next;
-    }
-
-    return headNode;
-  }
-
   public static boolean checkCircle(Node list) {
     Node slow = list;
-    Node fast = list.next;
-
-    while (fast != slow && fast.next != null) {
-      slow = slow.next;
-      fast = fast.next.next;
-
-      if (slow == fast) {
-        return true;
-      }
-    }
-
-    return false;
-  }
-
-  public static boolean checkCircle1(Node list) {
-    Node slow = list;
     Node fast = list;
     while (fast != null && fast.next != null) {
       slow = slow.next;
@@ -204,10 +152,11 @@ public class Utils {
     return false;
   }
 
-  public static Node reverse2(Node list) {
+  public static Node reverse(Node list) {
     Node headNode = null;
     Node preNode = null;
     Node currentNode = list;
+
     while (currentNode != null) {
       Node next = currentNode.next;
       if (next == null) {
@@ -222,36 +171,4 @@ public class Utils {
     return headNode;
   }
 
-  public static boolean checkCircle2(Node list) {
-    Node slow = list;
-    Node fast = list;
-    while (fast != null && fast.next != null) {
-      slow = slow.next;
-      fast = fast.next.next;
-
-      if (slow == fast) {
-        return true;
-      }
-    }
-
-    return false;
-  }
-
-  public static Node reverse3(Node list) {
-    Node headNode = null;
-    Node preNode = null;
-    Node currentNode = list;
-    while (currentNode != null) {
-      Node next = currentNode.next;
-      if (next == null) {
-        headNode = currentNode;
-      }
-
-      currentNode.next = preNode;
-      preNode = currentNode;
-      currentNode = next;
-    }
-
-    return headNode;
-  }
 }

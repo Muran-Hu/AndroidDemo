@@ -5,6 +5,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
+import java.util.Stack;
+
 import static android.view.MotionEvent.ACTION_DOWN;
 import static android.view.MotionEvent.ACTION_MOVE;
 import static android.view.MotionEvent.ACTION_UP;
@@ -15,6 +17,9 @@ import static android.view.MotionEvent.ACTION_UP;
  * Version v1.0.0
  */
 public class TouchView extends View {
+
+  Stack stack;
+
   public TouchView(Context context, AttributeSet attrs) {
     super(context, attrs);
   }

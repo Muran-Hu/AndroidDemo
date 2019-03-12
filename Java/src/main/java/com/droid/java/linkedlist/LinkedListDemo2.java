@@ -10,9 +10,9 @@ public class LinkedListDemo2 {
     Node list = Utils.initLinkedList();
     Node list2 = Utils.initCircledLinkedList();
 
-    System.out.println(Utils.checkCircle2(list));
-    System.out.println(Utils.checkCircle2(list2));
+    System.out.println(Utils.checkCircle(list));
+    System.out.println(Utils.checkCircle(list2));
 
-    Utils.printAll(Utils.reverse3(list));
+    Utils.printAll(Utils.reverse(list));
   }
 }
