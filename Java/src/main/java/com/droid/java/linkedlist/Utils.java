@@ -171,4 +171,38 @@ public class Utils {
     return headNode;
   }
 
+  public static boolean checkCircle1(Node list) {
+    Node slow = list;
+    Node fast = list;
+    while (fast != null && fast.next != null) {
+      slow = slow.next;
+      fast = fast.next.next;
+
+      if (slow == fast) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  public static Node reverse1(Node list) {
+    Node headNode = null;
+    Node preNode = null;
+    Node currentNode = list;
+
+    while (currentNode != null) {
+      Node next = currentNode.next;
+      if (next == null) {
+        headNode = currentNode;
+      }
+
+      currentNode.next = preNode;
+      preNode = currentNode;
+      currentNode = next;
+    }
+
+    return headNode;
+  }
+
 }

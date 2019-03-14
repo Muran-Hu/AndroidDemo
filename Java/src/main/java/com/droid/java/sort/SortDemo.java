@@ -9,12 +9,12 @@ public class SortDemo {
   private static int[] arr = new int[] {4, 5, 6, 3, 2, 1};
   public static void main(String[] args) {
     System.out.println("Bubble sort: ");
-    SortUtils.bubbleSort(arr);
+//    SortUtils.bubbleSort1(arr);
 
     System.out.println("Insert sort: ");
-    SortUtils.insertSort(arr);
+//    SortUtils.insertSort1(arr);
 
     System.out.println("Select sort: ");
-    SortUtils.selectSort(arr);
+    SortUtils.selectSort1(arr);
   }
 }
