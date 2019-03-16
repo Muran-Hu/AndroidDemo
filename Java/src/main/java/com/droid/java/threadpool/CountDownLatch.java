@@ -1,4 +1,4 @@
-package com.droid.java.countdownlatch;
+package com.droid.java.threadpool;
 
 import com.droid.java.threadpool.ExecutorManager;
 import com.droid.java.threadpool.Worker;
@@ -11,9 +11,9 @@ import java.util.concurrent.Executor;
  * Email: muranhu@gmail.com
  * Version v1.0.0
  */
-public class CDLatch {
+public class CountDownLatch {
   public static void main(String args[]) {
-    CountDownLatch countDownLatch = new CountDownLatch(4);
+    java.util.concurrent.CountDownLatch countDownLatch = new java.util.concurrent.CountDownLatch(4);
     Executor executor = ExecutorManager.createExecutor();
 
     System.out.println("Main is ready...");
