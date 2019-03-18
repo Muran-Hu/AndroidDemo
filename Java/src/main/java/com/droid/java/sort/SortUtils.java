@@ -77,7 +77,7 @@ public class SortUtils {
     for (int i = 1; i < arr.length; i++) {
       int value = arr[i];
       int j = i-1;
-      for (; j>=0 ; j--) {
+      for (; j >= 0 ; j--) {
         if (arr[j] > value) {
           arr[j+1] = arr[j];
         } else {
@@ -109,16 +109,17 @@ public class SortUtils {
   }
 
   public static void mergeSort(int[] arr) {
-    mergeSortInterally(arr, 0, arr.length-1);
+    mergeSortInternally(arr, 0, arr.length-1);
     printAll(arr);
   }
 
-  private static void mergeSortInterally(int[] arr, int p, int r) {
-    if (p >= r) return;
+  private static void mergeSortInternally(int[] arr, int p, int r) {
+    if (p>=r) return;
 
     int q = p + (r-p)/2;
-    mergeSortInterally(arr, p, q);
-    mergeSortInterally(arr, q+1, r);
+    mergeSortInternally(arr, p, q);
+    mergeSortInternally(arr, q+1, r);
+
     merge(arr, p, q, r);
   }
 
@@ -147,7 +148,7 @@ public class SortUtils {
       tmp[k++] = arr[start++];
     }
 
-    for (i = 0; i < tmp.length; i++) {
+    for (i = 0; i < tmp.length ; i++) {
       arr[p+i] = tmp[i];
     }
   }
