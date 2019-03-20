@@ -18,6 +18,6 @@ public class SortDemo {
     SortUtils.selectSort1(arr);
 
     System.out.println("Merge sort: ");
-    SortUtils.mergeSort(arr);
+    SortUtils.mergeSort1(arr);
   }
 }

@@ -2,6 +2,8 @@ package com.droid.java.linkedlist;
 
 import com.sun.org.apache.xpath.internal.axes.PredicatedNodeTest;
 
+import java.lang.reflect.WildcardType;
+
 import sun.nio.cs.ext.EUC_JP_LINUX;
 
 /**
@@ -204,5 +206,4 @@ public class Utils {
 
     return headNode;
   }
-
 }
