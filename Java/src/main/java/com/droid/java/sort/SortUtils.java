@@ -1,5 +1,7 @@
 package com.droid.java.sort;
 
+import java.util.jar.JarEntry;
+
 /**
  * Created by Muran Hu on 2019-03-12.
  * Email: muranhu@gmail.com
@@ -103,6 +105,37 @@ public class SortUtils {
     }
   }
 
+  public static void quickSort(int[] arr) {
+    quickSortInternally(arr, 0, arr.length-1);
+    printAll(arr);
+  }
+
+  private static void quickSortInternally(int[] arr, int p, int r) {
+    if (p >= r) return;
+
+    int q = partition(arr, p, r);
+    quickSortInternally(arr, p, q-1);
+    quickSortInternally(arr, q+1, r);
+  }
+
+  private static int partition(int[] arr, int p, int r) {
+    int pivot = arr[r];
+    int i = p;
+    for (int j = p; j < r; j++) {
+      if (arr[j] < pivot) {
+        if (i != j) {
+          swap(arr, i, j);
+        }
+
+        i++;
+      }
+    }
+
+    swap(arr, i, r);
+
+    return i;
+  }
+
   public static void bubbleSort1(int[] arr) {
     for (int i = 0; i < arr.length; i++) {
       boolean isSorted = true;
@@ -123,7 +156,7 @@ public class SortUtils {
     for (int i = 1; i < arr.length; i++) {
       int value = arr[i];
       int j = i-1;
-      for (; j >= 0; j--) {
+      for (; j >= 0 ; j--) {
         if (arr[j] > value) {
           arr[j+1] = arr[j];
         } else {
@@ -141,8 +174,9 @@ public class SortUtils {
     for (int i = 0; i < arr.length; i++) {
       int minIndex = i;
       for (int j = i+1; j < arr.length; j++) {
-        if (arr[j] < arr[minIndex])
+        if (arr[j] < arr[minIndex]) {
           minIndex = j;
+        }
       }
 
       if (minIndex != i) {
@@ -153,7 +187,7 @@ public class SortUtils {
     printAll(arr);
   }
 
-  public static void mergeSort1(int[] arr) {
+  public static void mergeSort1(int arr[]) {
     mergeSortInternally1(arr, 0, arr.length - 1);
     printAll(arr);
   }
@@ -195,6 +229,38 @@ public class SortUtils {
     for (i = 0; i < tmp.length; i++) {
       arr[p+i] = tmp[i];
     }
+  }
+
+  public static void quickSort1(int[] arr) {
+    quickSortInternally1(arr, 0, arr.length - 1);
+    printAll(arr);
+  }
+
+  private static void quickSortInternally1(int[] arr, int p, int r) {
+    if (p >= r) return;
+
+    int q = partition1(arr, p, r);
+    quickSortInternally1(arr, p, q-1);
+    quickSortInternally1(arr, q+1, r);
+  }
+
+  private static int partition1(int[] arr, int p , int r) {
+    int pivot = arr[r];
+    int i = p;
+
+    for (int j = p; j < r; j++) {
+      if (arr[j] < pivot) {
+        if (i != j) {
+          swap(arr, i, j);
+        }
+
+        i++;
+      }
+    }
+
+    swap(arr, i, r);
+
+    return i;
   }
 
   private static void swap(int[] arr, int i, int j) {
