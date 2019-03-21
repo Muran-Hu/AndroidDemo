@@ -187,7 +187,7 @@ public class SortUtils {
     printAll(arr);
   }
 
-  public static void mergeSort1(int arr[]) {
+  public static void mergeSort1(int[] arr) {
     mergeSortInternally1(arr, 0, arr.length - 1);
     printAll(arr);
   }
@@ -232,7 +232,7 @@ public class SortUtils {
   }
 
   public static void quickSort1(int[] arr) {
-    quickSortInternally1(arr, 0, arr.length - 1);
+    quickSortInternally1(arr, 0, arr.length-1);
     printAll(arr);
   }
 
@@ -244,10 +244,9 @@ public class SortUtils {
     quickSortInternally1(arr, q+1, r);
   }
 
-  private static int partition1(int[] arr, int p , int r) {
+  private static int partition1(int[] arr, int p, int r) {
     int pivot = arr[r];
     int i = p;
-
     for (int j = p; j < r; j++) {
       if (arr[j] < pivot) {
         if (i != j) {

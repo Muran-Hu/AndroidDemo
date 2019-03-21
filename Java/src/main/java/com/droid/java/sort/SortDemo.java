@@ -13,13 +13,13 @@ public class SortDemo {
 
 //    System.out.println("Insert sort: ");
 //    SortUtils.insertSort1(arr);
-//
+
 //    System.out.println("Select sort: ");
 //    SortUtils.selectSort1(arr);
-//
+
 //    System.out.println("Merge sort: ");
 //    SortUtils.mergeSort1(arr);
-//
+
     System.out.println("Quick sort: ");
     SortUtils.quickSort1(arr);
   }
