@@ -10,8 +10,8 @@ public class LinkedListDemo2 {
     Node list = Utils.initLinkedList();
     Node list2 = Utils.initCircledLinkedList();
 
-    System.out.println(Utils.checkCircle1(list));
     System.out.println(Utils.checkCircle1(list2));
+    System.out.println(Utils.checkCircle1(list));
 
     Utils.printAll(Utils.reverse1(list));
   }
