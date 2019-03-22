@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     GlideUrl glideUrl = new GlideUrl(URL_GIG);
 
-    mBtn.setOnClickListener(v -> Glide.with(MainActivity.this)
+    mBtn.setOnClickListener(v -> GlideApp.with(MainActivity.this)
             .load(glideUrl)
             .into(mImageView));
   }
