@@ -156,7 +156,8 @@ public class SortUtils {
     for (int i = 1; i < arr.length; i++) {
       int value = arr[i];
       int j = i-1;
-      for (; j >= 0; j--) {
+
+      for (; j >= 0 ; j--) {
         if (arr[j] > value) {
           arr[j+1] = arr[j];
         } else {
@@ -180,7 +181,7 @@ public class SortUtils {
       }
 
       if (minIndex != i) {
-        swap(arr, minIndex, i);
+        swap(arr, i, minIndex);
       }
     }
 
@@ -247,6 +248,7 @@ public class SortUtils {
   private static int partition1(int[] arr, int p, int r) {
     int pivot = arr[r];
     int i = p;
+
     for (int j = p; j < r; j++) {
       if (arr[j] < pivot) {
         if (i != j) {
