@@ -13,6 +13,8 @@ public class LinkedListDemo2 {
     System.out.println(Utils.checkCircle1(list2));
     System.out.println(Utils.checkCircle1(list));
 
+    Utils.printNode(Utils.findMiddleNode(list));
+
     Utils.printAll(Utils.reverse1(list));
   }
 }

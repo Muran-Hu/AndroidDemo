@@ -1,11 +1,5 @@
 package com.droid.java.linkedlist;
 
-import com.sun.org.apache.xpath.internal.axes.PredicatedNodeTest;
-
-import java.lang.reflect.WildcardType;
-
-import sun.nio.cs.ext.EUC_JP_LINUX;
-
 /**
  * Created by Muran Hu on 2019-03-04.
  * Email: muranhu@gmail.com
@@ -38,6 +32,14 @@ public class Utils {
     Node head = new Node(0, n1);
 
     return head;
+  }
+
+  public static void printNode(Node node) {
+    if (null == node) {
+      System.out.println("node is null");
+    }
+
+    System.out.println("Node value is: " + node.getValue());
   }
 
   public static void printAll(Node list) {
@@ -171,6 +173,17 @@ public class Utils {
     }
 
     return headNode;
+  }
+
+  public static Node findMiddleNode(Node list) {
+    Node slow = list;
+    Node fast = list;
+    while (fast != null && fast.next != null) {
+      slow = slow.next;
+      fast = fast.next.next;
+    }
+
+    return slow;
   }
 
   public static boolean checkCircle1(Node list) {
