@@ -139,7 +139,7 @@ public class SortUtils {
   public static void bubbleSort1(int[] arr) {
     for (int i = 0; i < arr.length; i++) {
       boolean isSorted = true;
-      for (int j = 1; j < arr.length - i; j++) {
+      for (int j = 1; j < arr.length-i; j++) {
         if (arr[j-1] > arr[j]) {
           swap(arr, j-1, j);
           isSorted = false;
@@ -180,7 +180,7 @@ public class SortUtils {
       }
 
       if (minIndex != i) {
-        swap(arr, minIndex, i);
+        swap(arr, i, minIndex);
       }
     }
 
@@ -217,7 +217,7 @@ public class SortUtils {
 
     int start = i;
     int end = q;
-    if (j <= r) {
+    if (j<=r) {
       start = j;
       end = r;
     }
