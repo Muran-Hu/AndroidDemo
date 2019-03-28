@@ -156,7 +156,7 @@ public class SortUtils {
     for (int i = 1; i < arr.length; i++) {
       int value = arr[i];
       int j = i-1;
-      for (; j>=0; j--) {
+      for (; j >= 0; j--) {
         if (arr[j] > value) {
           arr[j+1] = arr[j];
         } else {
@@ -217,7 +217,7 @@ public class SortUtils {
 
     int start = i;
     int end = q;
-    if (j<=r) {
+    if (j <= r) {
       start = j;
       end = r;
     }
@@ -249,7 +249,7 @@ public class SortUtils {
     int i = p;
     for (int j = p; j < r; j++) {
       if (arr[j] < pivot) {
-        if (i!=j) {
+        if (i != j) {
           swap(arr, i, j);
         }
 
