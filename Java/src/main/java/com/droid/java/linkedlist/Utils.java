@@ -205,7 +205,6 @@ public class Utils {
     Node headNode = null;
     Node preNode = null;
     Node currentNode = list;
-
     while (currentNode != null) {
       Node next = currentNode.next;
       if (next == null) {
