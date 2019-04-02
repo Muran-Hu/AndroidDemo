@@ -205,7 +205,6 @@ public class SortUtils {
     int i = p;
     int j = q+1;
     int k = 0;
-
     int[] tmp = new int[r-p+1];
     while (i<=q && j<=r) {
       if (arr[i] < arr[j]) {
@@ -217,7 +216,7 @@ public class SortUtils {
 
     int start = i;
     int end = q;
-    if (j <= r) {
+    if (j<=r) {
       start = j;
       end = r;
     }
