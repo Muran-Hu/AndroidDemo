@@ -12,8 +12,8 @@ public class SortUtils {
     for (int i = 0; i < arr.length; i++) {
       boolean isSorted = true;
       for (int j = 1; j < arr.length - i; j++) {
-        if (arr[j-1] > arr[j]) {
-          swap(arr, j-1, j);
+        if (arr[j - 1] > arr[j]) {
+          swap(arr, j - 1, j);
           isSorted = false;
         }
       }
@@ -27,16 +27,16 @@ public class SortUtils {
   public static void insertSort(int[] arr) {
     for (int i = 1; i < arr.length; i++) {
       int value = arr[i];
-      int j = i-1;
+      int j = i - 1;
       for (; j >= 0; j--) {
         if (arr[j] > value) {
-          arr[j+1] = arr[j];
+          arr[j + 1] = arr[j];
         } else {
           break;
         }
       }
 
-      arr[j+1] = value;
+      arr[j + 1] = value;
     }
 
     printAll(arr);
@@ -45,7 +45,7 @@ public class SortUtils {
   public static void selectSort(int[] arr) {
     for (int i = 0; i < arr.length; i++) {
       int minIndex = i;
-      for (int j = i+1; j < arr.length; j++) {
+      for (int j = i + 1; j < arr.length; j++) {
         if (arr[j] < arr[minIndex]) {
           minIndex = j;
         }
@@ -67,21 +67,21 @@ public class SortUtils {
   private static void mergeSortInternally(int[] arr, int p, int r) {
     if (p >= r) return;
 
-    int q = p + (r-p)/2;
+    int q = p + (r - p) / 2;
 
     mergeSortInternally(arr, p, q);
-    mergeSortInternally(arr, q+1, r);
+    mergeSortInternally(arr, q + 1, r);
 
     merge(arr, p, q, r);
   }
 
   private static void merge(int[] arr, int p, int q, int r) {
     int i = p;
-    int j = q+1;
+    int j = q + 1;
     int k = 0;
 
     int[] tmp = new int[r - p + 1];
-    while (i<=q && j<=r) {
+    while (i <= q && j <= r) {
       if (arr[i] < arr[j]) {
         tmp[k++] = arr[i++];
       } else {
@@ -91,7 +91,7 @@ public class SortUtils {
 
     int start = i;
     int end = q;
-    if (j<=r) {
+    if (j <= r) {
       start = j;
       end = r;
     }
@@ -101,12 +101,12 @@ public class SortUtils {
     }
 
     for (i = 0; i < tmp.length; i++) {
-      arr[p+i] = tmp[i];
+      arr[p + i] = tmp[i];
     }
   }
 
   public static void quickSort(int[] arr) {
-    quickSortInternally(arr, 0, arr.length-1);
+    quickSortInternally(arr, 0, arr.length - 1);
     printAll(arr);
   }
 
@@ -114,8 +114,8 @@ public class SortUtils {
     if (p >= r) return;
 
     int q = partition(arr, p, r);
-    quickSortInternally(arr, p, q-1);
-    quickSortInternally(arr, q+1, r);
+    quickSortInternally(arr, p, q - 1);
+    quickSortInternally(arr, q + 1, r);
   }
 
   private static int partition(int[] arr, int p, int r) {
@@ -156,7 +156,7 @@ public class SortUtils {
     for (int i = 1; i < arr.length; i++) {
       int value = arr[i];
       int j = i-1;
-      for (; j >= 0 ; j--) {
+      for (; j >= 0; j--) {
         if (arr[j] > value) {
           arr[j+1] = arr[j];
         } else {
@@ -205,9 +205,10 @@ public class SortUtils {
     int i = p;
     int j = q+1;
     int k = 0;
+
     int[] tmp = new int[r-p+1];
     while (i<=q && j<=r) {
-      if (arr[i] < arr[j]) {
+      if (arr[i] <= arr[j]) {
         tmp[k++] = arr[i++];
       } else {
         tmp[k++] = arr[j++];
