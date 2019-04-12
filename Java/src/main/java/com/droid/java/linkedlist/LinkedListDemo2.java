@@ -7,14 +7,17 @@ package com.droid.java.linkedlist;
  */
 public class LinkedListDemo2 {
   public static void main(String args[]){
-    Node list = Utils.initLinkedList();
-    Node list2 = Utils.initCircledLinkedList();
-
-    System.out.println(Utils.checkCircle1(list2));
-    System.out.println(Utils.checkCircle1(list));
-
-    Utils.printNode(Utils.findMiddleNode1(list));
-
-    Utils.printAll(Utils.reverse1(list));
+//    Node list = Utils.initLinkedList();
+//    Node list2 = Utils.initCircledLinkedList();
+//
+//    System.out.println(Utils.checkCircle1(list2));
+//    System.out.println(Utils.checkCircle1(list));
+//
+//    Utils.printNode(Utils.findMiddleNode1(list));
+//
+//    Utils.printAll(Utils.reverse1(list));
+//
+    Node[] xList = Utils.initXLinkedLists();
+    Utils.printNode(Utils.findXNode1(xList));
   }
 }

@@ -1,5 +1,7 @@
 package com.droid.java.linkedlist;
 
+import java.util.Stack;
+
 /**
  * Created by Muran Hu on 2019-03-04.
  * Email: muranhu@gmail.com
@@ -34,9 +36,25 @@ public class Utils {
     return head;
   }
 
+  public static Node[] initXLinkedLists() {
+    Node n1_1 = new Node(5, null);
+    Node n1_2 = new Node(4, n1_1);
+    Node n1_3 = new Node(8, n1_2);
+
+    Node n1_4 = new Node(1, n1_3);
+    Node n1_5 = new Node(4, n1_4);
+
+    Node n2_4 = new Node(1, n1_3);
+    Node n2_5 = new Node(0, n2_4);
+    Node n2_6 = new Node(5, n2_5);
+
+    return new Node[]{n1_5, n2_6};
+  }
+
   public static void printNode(Node node) {
     if (null == node) {
       System.out.println("node is null");
+      return;
     }
 
     System.out.println("Node value is: " + node.getValue());
@@ -186,6 +204,99 @@ public class Utils {
     return slow;
   }
 
+  /**
+   * 判断两个单项链表是否相交，如果有相交，则返回相交处节点
+   *
+   * 1. 将两个链表分别遍历，入栈
+   * 2. 从栈中分别取出元素进行比较
+   * 3. 如果相等，继续 2
+   * 4. 如果不相等，则返回当前节点的next
+   *
+   * @param nodes
+   * @return
+   */
+  public static Node findXNode(Node[] nodes) {
+    Node list1 = nodes[0];
+    Node list2 = nodes[1];
+
+    Node tmp = null;
+
+    Stack<Node> stack1 = new Stack<>();
+    Stack<Node> stack2 = new Stack<>();
+
+    while (list1 != null) {
+      stack1.push(list1);
+      list1 = list1.next;
+    }
+
+    while (list2 != null) {
+      stack2.push(list2);
+      list2 = list2.next;
+    }
+
+    while (!stack1.empty() && !stack2.empty()) {
+      tmp = stack1.peek();
+      if (tmp != stack2.peek()) {
+        return tmp.next;
+      }
+
+      stack1.pop();
+      stack2.pop();
+    }
+
+    return tmp;
+  }
+
+  /**
+   * 判断两个单链表是否相交，如果有相交，则返回相交处节点
+   *
+   * 1. 分别遍历两个链表，计算其长度值 len1，len2
+   * 2. 比较两个链表的最后一个节点是否相等，如果相等，说明有相交
+   * 3. detla = Math.abs(len1 - len2)
+   * 4. 长链表先遍历 detla 个
+   * 5. 此时两个链表长度一致
+   * 6. 同时遍历两个链表，找到第一个相同的节点
+   *
+   * @param nodes
+   * @return
+   */
+  public static Node findXNode1(Node[] nodes) {
+    Node p1 = nodes[0];
+    Node p2 = nodes[1];
+
+    int len1 = 0;
+    while (p1 != null) {
+      len1 += 1;
+      p1 = p1.next;
+    }
+
+    int len2 = 0;
+    while (p2 != null) {
+      len2 += 1;
+      p2 = p2.next;
+    }
+
+    int delta = Math.abs(len1 - len2);
+    if (len1 > len2) {
+      p1 = nodes[0];
+      p2 = nodes[1];
+    } else {
+      p1 = nodes[1];
+      p2 = nodes[0];
+    }
+
+    for (int i = 0; i < delta; i++) {
+      p1 = p1.next;
+    }
+
+    while (p1 != p2) {
+      p1 = p1.next;
+      p2 = p2.next;
+    }
+
+    return p1;
+  }
+
   public static boolean checkCircle1(Node list) {
     Node slow = list;
     Node fast = list;
@@ -229,4 +340,6 @@ public class Utils {
 
     return slow;
   }
+
+
 }
