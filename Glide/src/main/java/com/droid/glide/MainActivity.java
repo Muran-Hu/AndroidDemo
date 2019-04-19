@@ -2,12 +2,11 @@ package com.droid.glide;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.model.GlideUrl;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
     mBtn = findViewById(R.id.btn);
     mImageView = findViewById(R.id.img);
 
-    GlideUrl glideUrl = new GlideUrl(URL_GIG);
-
-    mBtn.setOnClickListener(v -> GlideApp.with(MainActivity.this)
-            .load(glideUrl)
+    mBtn.setOnClickListener(v -> Glide.with(MainActivity.this)
+            .load(URL)
+            .skipMemoryCache(true)
+            .diskCacheStrategy(DiskCacheStrategy.NONE)
             .into(mImageView));
   }
 }
