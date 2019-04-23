@@ -29,6 +29,10 @@ public class GenericDemo2 {
         printColl1(coll);
         printColl1(coll2);
 //        printColl1(coll3);
+
+        for (Person person : coll) {
+            System.out.println(person.name);
+        }
     }
 
     private static void printColl(Collection<? extends Person> collection) {

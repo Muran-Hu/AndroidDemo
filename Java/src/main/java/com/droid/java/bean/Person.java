@@ -1,7 +1,7 @@
 package com.droid.java.bean;
 
 public class Person {
-    String name;
+    public String name;
 
     public Person(String name) {
         this.name = name;

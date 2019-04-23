@@ -11,5 +11,13 @@ fun main() {
 
     val c:Int = str?.toInt() ?: -1
 
+    var pair: Pair<Int, String> = Pair(10, "zhangsan")
+    println(pair.first)
+    println(pair.second)
+
+    var triple: Triple<Int, String, Boolean> = Triple(20, "lisi", false)
+    println(triple.first)
+    println(triple.second)
+    println(triple.third)
 
 }
