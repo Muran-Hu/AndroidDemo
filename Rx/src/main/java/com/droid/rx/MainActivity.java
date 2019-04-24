@@ -3,6 +3,8 @@ package com.droid.rx;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -10,6 +12,8 @@ import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Action;
+import io.reactivex.functions.BiFunction;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.functions.Predicate;
@@ -24,13 +28,86 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    test1();
+//    test1();
+//
+//    test2();
+//
+//    test3();
+//
+//    test4();
+//
+    test5();
 
-    test2();
+    test6();
+  }
 
-    test3();
+  /**
+   * 操作符 - zip
+   */
+  private void test6() {
+    final Observable<Integer> observable1 = new Observable<Integer>() {
+      @Override
+      protected void subscribeActual(Observer<? super Integer> observer) {
+        observer.onNext(1);
+        observer.onNext(2);
+//        observer.onNext(3);
+        observer.onComplete();
+      }
+    };
+    Observable<String> observable2 = new Observable<String>() {
+      @Override
+      protected void subscribeActual(Observer<? super String> observer) {
+        observer.onNext("A");
+        observer.onNext("B");
+        observer.onNext("C");
+        observer.onComplete();
+      }
+    };
 
-    test4();
+    Observable.zip(observable1,
+                   observable2,
+                   new BiFunction<Integer, String, String>() {
+                     @Override
+                     public String apply(Integer integer, String s) throws Exception {
+                       return integer.intValue() + s;
+                     }
+                   })
+              .subscribeOn(Schedulers.io())
+              .observeOn(AndroidSchedulers.mainThread())
+              .subscribe(new Consumer<String>() {
+                @Override
+                public void accept(String s) throws Exception {
+                  System.out.println(TAG + s);
+                }
+              });
+  }
+
+  /**
+   * 操作符 - merge
+   */
+  private void test5() {
+    List<Integer> list1 = new ArrayList<>();
+    list1.add(1);
+    list1.add(2);
+    list1.add(3);
+
+    List<String> list2 = new ArrayList<>();
+    list2.add("a");
+    list2.add("b");
+    list2.add("c");
+
+    Observable<List<Integer>> observable1 = Observable.fromArray(list1);
+    Observable<List<String>> observable2 = Observable.fromArray(list2);
+
+    Observable.merge(observable1, observable2)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(new Consumer<Object>() {
+              @Override
+              public void accept(Object o) throws Exception {
+                System.out.println(TAG + o.toString());
+              }
+            });
   }
 
   class Person {
@@ -49,6 +126,9 @@ public class MainActivity extends AppCompatActivity {
     }
   }
 
+  /**
+   * 操作符 - flatMap、map、filter、take、doOnNext
+   */
   private void test4() {
     Observable.fromArray("zhangsan", "lisi", "wangwu")
             // 字符串转换成User对象
