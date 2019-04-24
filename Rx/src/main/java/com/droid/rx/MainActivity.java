@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
+    test();
+
 //    test1();
 //
 //    test2();
@@ -36,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
 //
 //    test4();
 //
-    test5();
-
-    test6();
+//    test5();
+//
+//    test6();
   }
 
   /**
@@ -263,5 +267,26 @@ public class MainActivity extends AppCompatActivity {
     };
 
     observable.subscribe(observer);
+  }
+
+  private void test() {
+    Observable<String> observable = Observable.create(new ObservableOnSubscribe<String>() {
+      @Override
+      public void subscribe(ObservableEmitter<String> emitter) throws Exception {
+        emitter.onNext("a");
+        emitter.onNext("b");
+        emitter.onNext("c");
+        emitter.onComplete();
+      }
+    });
+
+    observable.subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(new Consumer<String>() {
+              @Override
+              public void accept(String s) throws Exception {
+                System.out.println(TAG + s);
+              }
+            });
   }
 }
