@@ -20,7 +20,27 @@ public class TraversalDemo {
 //    System.out.println(sumOfLeftLeaves(initTree2()));
 
     // 计算所有左子叶子节点数值之和
-    System.out.println(sumOfLeftSubLeaves(initTree2()));
+//    System.out.println(sumOfLeftSubLeaves(initTree2()));
+  }
+
+  /**
+   * 初始化二叉树，用于下面的遍历方法
+   *
+   *  1
+   *    2
+   *  3
+   *
+   * @return
+   */
+  private static TreeNode initTree1() {
+    TreeNode rootNode = new TreeNode(1);
+    TreeNode node1 = new TreeNode(2);
+    TreeNode node2 = new TreeNode(3);
+
+    rootNode.right = node1;
+    node1.left = node2;
+
+    return rootNode;
   }
 
   /**
@@ -122,26 +142,6 @@ public class TraversalDemo {
   }
 
   /**
-   * 初始化二叉树，用于下面的遍历方法
-   *
-   *  1
-   *    2
-   *  3
-   *
-   * @return
-   */
-  private static TreeNode initTree1() {
-    TreeNode rootNode = new TreeNode(1);
-    TreeNode node1 = new TreeNode(2);
-    TreeNode node2 = new TreeNode(3);
-
-    rootNode.right = node1;
-    node1.left = node2;
-
-    return rootNode;
-  }
-
-  /**
    * 二叉树遍历
    * 前序
    * 中序
@@ -150,11 +150,11 @@ public class TraversalDemo {
    * @param rootNode
    */
   private static void traversal(TreeNode rootNode) {
-    System.out.println(preorderTraversal(rootNode));
+    System.out.println(preOrderTraversal(rootNode));
 
-    System.out.println(inorderTraversal(rootNode));
+    System.out.println(inOrderTraversal(rootNode));
 
-    System.out.println(postorderTraversal(rootNode));
+    System.out.println(postOrderTraversal(rootNode));
   }
 
   /**
@@ -163,17 +163,17 @@ public class TraversalDemo {
    * @param root
    * @return
    */
-  private static List<Integer> preorderTraversal(TreeNode root) {
+  public static List<Integer> preOrderTraversal(TreeNode root) {
     List<Integer> list = new ArrayList<>();
 
     list.add(root.val);
 
     if (null != root.left) {
-      list.addAll(preorderTraversal(root.left));
+      list.addAll(preOrderTraversal(root.left));
     }
 
     if (null != root.right) {
-      list.addAll(preorderTraversal(root.right));
+      list.addAll(preOrderTraversal(root.right));
     }
 
     return list;
@@ -185,17 +185,17 @@ public class TraversalDemo {
    * @param root
    * @return
    */
-  private static List<Integer> inorderTraversal(TreeNode root) {
+  public static List<Integer> inOrderTraversal(TreeNode root) {
     List<Integer> list = new ArrayList<>();
 
     if (null != root.left) {
-      list.addAll(inorderTraversal(root.left));
+      list.addAll(inOrderTraversal(root.left));
     }
 
     list.add(root.val);
 
     if (null != root.right) {
-      list.addAll(inorderTraversal(root.right));
+      list.addAll(inOrderTraversal(root.right));
     }
 
     return list;
@@ -207,21 +207,20 @@ public class TraversalDemo {
    * @param root
    * @return
    */
-  private static List<Integer> postorderTraversal(TreeNode root) {
+  public static List<Integer> postOrderTraversal(TreeNode root) {
     List<Integer> list = new ArrayList<>();
 
     if (null != root.left) {
-      list.addAll(postorderTraversal(root.left));
+      list.addAll(postOrderTraversal(root.left));
     }
 
     if (null != root.right) {
-      list.addAll(postorderTraversal(root.right));
+      list.addAll(postOrderTraversal(root.right));
     }
 
     list.add(root.val);
 
     return list;
   }
-
 
 }
