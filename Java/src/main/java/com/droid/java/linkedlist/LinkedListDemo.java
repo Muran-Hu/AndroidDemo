@@ -1,7 +1,5 @@
 package com.droid.java.linkedlist;
 
-import sun.nio.cs.UTF_32LE;
-
 /**
  * Created by Muran Hu on 2019-03-04.
  * Email: muranhu@gmail.com
