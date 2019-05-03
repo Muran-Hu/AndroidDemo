@@ -156,7 +156,7 @@ public class SortUtils {
     for (int i = 1; i < arr.length; i++) {
       int value = arr[i];
       int j = i-1;
-      for (; j >= 0; j--) {
+      for (; j >= 0 ; j--) {
         if (arr[j] > value) {
           arr[j+1] = arr[j];
         } else {
@@ -196,7 +196,7 @@ public class SortUtils {
     if (p >= r) return;
 
     int q = p + (r-p)/2;
-    mergeSortInternally1(arr, 0, q);
+    mergeSortInternally1(arr, p, q);
     mergeSortInternally1(arr, q+1, r);
     merge1(arr, p, q, r);
   }
@@ -206,6 +206,7 @@ public class SortUtils {
     int j = q+1;
     int k = 0;
     int[] tmp = new int[r-p+1];
+
     while (i<=q && j<=r) {
       if (arr[i] < arr[j]) {
         tmp[k++] = arr[i++];
