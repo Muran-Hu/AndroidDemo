@@ -188,7 +188,7 @@ public class SortUtils {
   }
 
   public static void mergeSort1(int[] arr) {
-    mergeSortInternally1(arr, 0, arr.length-1);
+    mergeSortInternally1(arr, 0, arr.length - 1);
     printAll(arr);
   }
 
@@ -205,8 +205,8 @@ public class SortUtils {
     int i = p;
     int j = q+1;
     int k = 0;
-    int[] tmp = new int[r-p+1];
 
+    int[] tmp = new int[r-p+1];
     while (i<=q && j<=r) {
       if (arr[i] < arr[j]) {
         tmp[k++] = arr[i++];
