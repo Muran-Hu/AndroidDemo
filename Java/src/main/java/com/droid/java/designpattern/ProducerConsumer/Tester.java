@@ -11,13 +11,15 @@ public class Tester {
         Producer p2 = new Producer(resource);
         Producer p3 = new Producer(resource);
 
-        Consumer consumer = new Consumer(resource);
+        Consumer c1 = new Consumer(resource);
+        Consumer c2 = new Consumer(resource);
+        Consumer c3 = new Consumer(resource);
 
         p1.start();
         p2.start();
         p3.start();
 
-        consumer.start();
+        c1.start();
     }
 }
 
