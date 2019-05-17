@@ -11,7 +11,7 @@ import java.util.ListIterator;
  * Version: v1.0.0
  */
 public class ListIteratorDemo {
-  public static void main(String args[]) {
+  public static void main(String[] args) {
     List list = new ArrayList<String>();
 
     list.add("abc1");

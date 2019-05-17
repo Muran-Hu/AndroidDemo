@@ -6,7 +6,7 @@ package com.droid.java.string;
  * Version v1.0.0
  */
 public class StringDemo {
-  public static void main(String args[]) {
+  public static void main(String[] args) {
     String str = "abcd";
 
     StringBuffer sBuffer= new StringBuffer();

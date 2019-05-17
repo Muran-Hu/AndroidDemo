@@ -46,7 +46,7 @@ public class JvmDemo1 {
 
         System.out.println(s1 == s2); // true
 
-        String s3 = new String("abc");
+        String s3 = "abc";
 
         System.out.println(s1 == s3); // false
 

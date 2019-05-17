@@ -27,7 +27,7 @@ import java.util.concurrent.Executor;
  * Version v1.0.0
  */
 public class Main {
-  public static void main(String args[]) {
+  public static void main(String[] args) {
 //    observerTester();
 
 //    countDownLatchTester();

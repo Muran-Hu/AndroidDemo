@@ -9,7 +9,7 @@ import java.util.List;
  * Version v1.0.0
  */
 public class TraversalDemo {
-  public static void main(String args[]) {
+  public static void main(String[] args) {
     // 二叉树遍历
 //    traversal(initTree1());
 

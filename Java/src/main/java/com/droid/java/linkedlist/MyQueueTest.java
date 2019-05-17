@@ -6,7 +6,7 @@ package com.droid.java.linkedlist;
  * Version: v1.0.0
  */
 public class MyQueueTest {
-  public static void main(String args[]) {
+  public static void main(String[] args) {
     MyQueue myQueue = new MyQueue();
 
     myQueue.add("abc1");

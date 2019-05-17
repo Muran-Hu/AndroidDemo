@@ -333,6 +333,7 @@ public class Utils {
   public static Node findMiddleNode1(Node list) {
     Node slow = list;
     Node fast = list;
+
     while (fast != null && fast.next != null) {
       slow = slow.next;
       fast = fast.next.next;
@@ -340,6 +341,4 @@ public class Utils {
 
     return slow;
   }
-
-
 }

@@ -10,7 +10,7 @@ import java.util.ListIterator;
  */
 public class LinkedListDemo1 {
 
-  public static void main(String args[]) {
+  public static void main(String[] args) {
     LinkedList list = new LinkedList();
     list.add("a");
     list.add("b");

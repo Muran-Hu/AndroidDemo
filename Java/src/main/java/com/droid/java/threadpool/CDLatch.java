@@ -8,7 +8,7 @@ import java.util.concurrent.Executor;
  * Version v1.0.0
  */
 public class CDLatch {
-  public static void main(String args[]) {
+  public static void main(String[] args) {
     java.util.concurrent.CountDownLatch countDownLatch = new java.util.concurrent.CountDownLatch(4);
     Executor executor = ExecutorManager.createExecutor();
 

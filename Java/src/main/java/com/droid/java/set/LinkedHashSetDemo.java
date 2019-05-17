@@ -9,7 +9,7 @@ import java.util.LinkedHashSet;
  * Version: v1.0.0
  */
 public class LinkedHashSetDemo {
-  public static void main(String args[]) {
+  public static void main(String[] args) {
     LinkedHashSet linkedHashSet = new LinkedHashSet();
 
     linkedHashSet.add(new Student("abc", 20));

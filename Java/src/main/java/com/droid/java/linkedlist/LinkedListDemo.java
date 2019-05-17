@@ -6,7 +6,7 @@ package com.droid.java.linkedlist;
  * Version: v1.0.0
  */
 public class LinkedListDemo {
-  public static void main(String args[]){
+  public static void main(String[] args){
     Node list = Utils.initLinkedList();
 
     Node newHead = new Node(-1, null);

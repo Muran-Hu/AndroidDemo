@@ -13,7 +13,7 @@ public class Problem20 {
   private static HashMap<String, String> hashMap = new HashMap<>();
   private static Stack stack = new Stack();
 
-  public static void main(String args[]) {
+  public static void main(String[] args) {
 
     hashMap.put("(", ")");
     hashMap.put("{", "}");

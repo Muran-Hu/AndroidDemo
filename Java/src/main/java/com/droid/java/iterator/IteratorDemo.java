@@ -10,11 +10,11 @@ import java.util.Iterator;
  * Version: v1.0.0
  */
 public class IteratorDemo {
-  public static void main(String args[]) {
+  public static void main(String[] args) {
     Collection coll = new ArrayList();
-    ((ArrayList) coll).add("abc1");
-    ((ArrayList) coll).add("abc2");
-    ((ArrayList) coll).add("abc3");
+    coll.add("abc1");
+    coll.add("abc2");
+    coll.add("abc3");
 
     // 第一种写法
     Iterator it = coll.iterator();
