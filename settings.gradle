@@ -1,1 +1,1 @@
-include ':App', ':UI', ':Glide', ':ButterKnife', ':Java', ':Touch', ':BaseLibrary', ':AndroidBaseKnowledge', ':Dagger2', ':Rx', ':MvpKotlin', ':MvpJava', ':Bitmap', ':Pluginnable', ':Plugin', ':Retrofit', ':Handler', ':Mvvm'
+include ':App', ':UI', ':Glide', ':ButterKnife', ':Java', ':Touch', ':BaseLibrary', ':AndroidBaseKnowledge', ':Dagger2', ':Rx', ':MvpKotlin', ':MvpJava', ':Bitmap', ':Pluginnable', ':Plugin', ':Retrofit', ':Handler', ':Mvvm', ':ConstraintLayout'
