@@ -16,8 +16,8 @@ public class LinkedListDemo2 {
     Utils.printNode(Utils.findMiddleNode1(list));
 
     Utils.printAll(Utils.reverse1(list));
-//
-//    Node[] xList = Utils.initXLinkedLists();
-//    Utils.printNode(Utils.findXNode1(xList));
+
+    Node[] xList = Utils.initXLinkedLists();
+    Utils.printNode(Utils.findXNode1(xList));
   }
 }
