@@ -6,4 +6,7 @@ package com.droid.java.array;
  * Version: v1.0.0
  */
 public class ArrayDemo {
+    public static void main(String[] args) {
+
+    }
 }
