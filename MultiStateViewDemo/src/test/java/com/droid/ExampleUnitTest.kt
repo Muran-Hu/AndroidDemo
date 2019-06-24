@@ -1,4 +1,4 @@
-package com.droid.constraintlayout
+package com.droid
 
 import org.junit.Test
 
